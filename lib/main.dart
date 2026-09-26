@@ -1,122 +1,161 @@
+// ЛР 1 — шесть независимых виджетов.
+//
+// Как сдавать: скопируйте этот файл целиком себе в main.dart, допишите
+// шесть функций ниже вместо TODO, запустите — все шесть элементов должны
+// появиться на экране. Пришлите готовый файл на проверку.
+//
+// Основной виджет трогать не нужно. Редактируйте там, где написано TODO.
+
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Lab1App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Lab1App extends StatelessWidget {
+  const Lab1App({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+      home: Scaffold(
+        appBar: AppBar(title: const Text('ЛР 1')),
+        body: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Task 1:',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              task1(),
+              const SizedBox(height: 4),
+              Divider(),
+              const SizedBox(height: 4),
+              Text(
+                'Task 2:',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              task2(),
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: .center,
-          children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+              const SizedBox(height: 4),
+              Divider(),
+              const SizedBox(height: 4),
+              Text(
+                'Task 3:',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              task3(),
+              const SizedBox(height: 4),
+              Divider(),
+              const SizedBox(height: 4),
+              Text(
+                'Task 4:',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              task4(),
+              const SizedBox(height: 4),
+              Divider(),
+              const SizedBox(height: 4),
+              Text(
+                'Task 5:',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              task5(),
+              const SizedBox(height: 4),
+              Divider(),
+              const SizedBox(height: 4),
+              Text(
+                'Task 6:',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              task6(),
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
     );
   }
+}
+
+// 1. Заголовок — Text, крупный жирный текст чёрного цвета, обрезается в одну строку, если не помещается.
+Widget task1() {
+  return Text(
+    "Тестовый длинный текст Тестовый длинный текстТестовый длинный текстТестовый длинный текстТестовый длинный текстТестовый длинный текстТестовый длинный текст",
+    style: TextStyle(
+      fontSize: 30,
+      fontWeight: FontWeight.w500,
+      color: Colors.black,
+      overflow: TextOverflow.ellipsis,
+    ),
+  );
+}
+
+// 2. Подпись — небольшой, нежирный курсивный текст белого цвета, обрезается в две строки.
+// Также реализуйте подложку из тёмно-серого контейнера с закруглениями, чтобы текст было видно
+Widget task2() {
+  return Container(
+    padding: EdgeInsets.all(10),
+    decoration: BoxDecoration(
+      color: Colors.grey[800],
+      borderRadius: BorderRadius.circular(10),
+    ),
+    child: Text(
+      "Тестовый длинный текст Тестовый длинный текстТестовый длинный текстТестовый длинный текстТестовый длинный текстТестовый длинный текстТестовый длинный текст",
+      style: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: Colors.white,
+        overflow: TextOverflow.ellipsis,
+      ),
+    ),
+  );
+}
+
+// 3. Иконка — любая Icon на ваш вкус,
+// с применением цвета и размером.
+Widget task3() {
+  return Icon(Icons.favorite, color: Colors.red, size: 32);
+}
+
+// 4. Кнопка с иконкой избранного — большая иконка сердца красного цвета без фона.
+// При нажатии пишет в консоль "Вы добавили в избранное"
+Widget task4() {
+  return IconButton(
+    icon: Icon(Icons.favorite, color: Colors.red, size: 48),
+    onPressed: () {
+      print("Вы добавили в избранное");
+    },
+  );
+}
+
+// 5. Кнопка «Подробнее» — кнопка с текстом и обводкой, при нажатии пишет в консоль "Узнать детали"
+Widget task5() {
+  return ElevatedButton(
+    style: ElevatedButton.styleFrom(side: BorderSide(color: Colors.black)),
+    onPressed: () {
+      print("Узнать детали");
+    },
+    child: Text("Подробнее"),
+  );
+}
+
+// 6. Изображение в стиле Polaroid—  выберите любое из каталога по ссылке
+// https://picsum.photos/ (необходим vpn), либо используйте https://docs.flutter.dev/assets/images/dash/dash-fainting.gif
+// Добавьте чёрную обводку, а внутри белую рамку в стиле фотографии Polaroid (https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAeKRHzUEOMCX836O6p8R5-XBkrSlf8C4go4C7f1q8ClnmlFaV9emSrUFL&s=10)
+// Для реализации используйте Container
+Widget task6() {
+  return Container(
+    width: 200,
+    height: 240,
+    padding: EdgeInsets.fromLTRB(10, 10, 10, 40),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      boxShadow: [
+        BoxShadow(color: Colors.black26, blurRadius: 8, offset: Offset(2, 4)),
+      ],
+    ),
+    child: Image.network("https://picsum.photos/200/300", fit: BoxFit.cover),
+  );
 }
