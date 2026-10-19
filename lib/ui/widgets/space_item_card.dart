@@ -53,11 +53,15 @@ class SpaceItemCard extends StatelessWidget {
                 const SizedBox(height: 8),
                 Row(
                   children: [
-                    Icon(item.category.icon, size: 16, color: Colors.indigo),
+                    Icon(
+                      item.spaceCategory.icon,
+                      size: 16,
+                      color: Colors.indigo,
+                    ),
                     const SizedBox(width: 4),
                     Expanded(
                       child: Text(
-                        item.category.label,
+                        item.spaceCategory.label,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
@@ -106,7 +110,7 @@ class _CardCover extends StatelessWidget {
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: item.colors,
+                colors: item.gradient,
               ),
             ),
           ),
