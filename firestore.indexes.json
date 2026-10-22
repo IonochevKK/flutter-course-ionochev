@@ -1,0 +1,29 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "books",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "category", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "name", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "books",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "category", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "createdAt", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "books",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "category", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "createdAt", "order": "ASCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
